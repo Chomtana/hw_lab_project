@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/HWSynLab/Lab06/Lab06.runs/impl_1'
+HD_PWD='D:/HWSynLab/Lab06Uart/Lab06.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -42,6 +42,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .write_bitstream.begin.rst
-EAStep vivado -log uartSystem.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source uartSystem.tcl -notrace
+EAStep vivado -log system.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source system.tcl -notrace
 
 

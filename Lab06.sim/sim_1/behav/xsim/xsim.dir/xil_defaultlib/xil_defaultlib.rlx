@@ -4,9 +4,9 @@ May 27 2020
 20:09:33
 D:/HWSynLab/Lab06Uart/Lab06.sim/sim_1/behav/xsim/glbl.v,1589127971,verilog,,,,glbl,,,,,,,,
 D:/HWSynLab/Lab06Uart/Lab06.srcs/sim_1/new/aluTester.v,1607251230,verilog,,,,aluTester,,,,,,,,
-,,,,,,computeUnitTester,,,,,,,,
+D:/HWSynLab/Lab06Uart/Lab06.srcs/sim_1/new/computeUnitTester.v,1607267096,verilog,,,,computeUnitTester,,,,,,,,
 D:/HWSynLab/Lab06Uart/Lab06.srcs/sim_1/new/ioControllerTester.v,1607229458,verilog,,,,ioControllerTester,,,,,,,,
 D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/abs.v,1607225688,verilog,,D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/alu.v,,abs,,,,,,,,
-D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/alu.v,1607260958,verilog,,D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/computeUnit.v,,alu,,,,,,,,
+D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/alu.v,1607269013,verilog,,D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/computeUnit.v,,alu,,,,,,,,
 D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/computeUnit.v,1607260186,verilog,,D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/ioController.v,,computeUnit,,,,,,,,
 D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/ioController.v,1607261327,verilog,,D:/HWSynLab/Lab06Uart/Lab06.srcs/sim_1/new/computeUnitTester.v,,ioController,,,,,,,,

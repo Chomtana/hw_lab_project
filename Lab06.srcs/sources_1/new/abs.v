@@ -27,5 +27,5 @@ module abs(
     );
     
     assign sign_num = num[15];
-    assign abs_num = (sign_num == 1 ? -num : num);
+    assign abs_num = (num[15] == 1 ? -num : num);
 endmodule

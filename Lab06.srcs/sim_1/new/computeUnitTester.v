@@ -110,6 +110,12 @@ module computeUnitTester(
         
         #1
         uart = 0;
+        
+        #1
+        uart = K_C;
+        
+        #1
+        uart = 0;
     
         #1
         $finish;

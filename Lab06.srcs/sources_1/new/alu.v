@@ -85,6 +85,6 @@ module alu(
         endcase
         
         S = {SS > 9999 ? 1'b1 : 1'b0, Ssign, SS[14:0]};
-        $monitor("%b; A: %b %d, B: %b %d, alu_ops: %b -> S: %b %d", {addSignB, Ssign}, signA, absA, signB, absB, alu_ops, S[16:15], S[14:0]);
+        //$monitor("%b; A: %b %d, B: %b %d, alu_ops: %b -> S: %b %d", {addSignB, Ssign}, signA, absA, signB, absB, alu_ops, S[16:15], S[14:0]);
     end
 endmodule

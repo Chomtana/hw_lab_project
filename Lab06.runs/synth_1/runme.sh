@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/HWSynLab/Lab06/Lab06.runs/synth_1'
+HD_PWD='D:/HWSynLab/Lab06Uart/Lab06.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log uartSystem.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source uartSystem.tcl
+EAStep vivado -log system.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source system.tcl
