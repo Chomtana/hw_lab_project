@@ -39,7 +39,7 @@ module system(
     
     wire [15:0] absS;
     
-    uartSystem uartSystem(clk, RsRx, RsTx, uart, A, B, alu_ops, S[15:0]);
+    uartSystem uartSystem(clk, RsRx, RsTx, uart, A, B, alu_ops, S);
     //computeUnit computeUnit(uart, A, B, alu_ops, S);
     
     alu aluComponent(A, B, alu_ops, S);

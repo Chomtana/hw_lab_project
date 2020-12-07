@@ -26,7 +26,7 @@ module uartSystem(
     output reg [15:0] A,
     output reg [15:0] B,
     output reg [2:0] alu_ops,
-    input [15:0] S
+    input [16:0] S
     );
     
     reg [2:0] st = 0;
@@ -82,7 +82,7 @@ module uartSystem(
                 
                 if (st > 1)
                 begin
-                    A = S;
+                    A = (S[16] == 1 ? 16'b0 : (S[15] == 1 ? -{1'b0, S[14:0]} : S[15:0]));
                     B = 0;
                     st = 1;
                 end
