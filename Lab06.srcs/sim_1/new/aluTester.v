@@ -145,6 +145,9 @@ module aluTester(
         
         #1
         alu_ops = 3'b011;
+        
+        #1
+        $finish;
     
     end
     

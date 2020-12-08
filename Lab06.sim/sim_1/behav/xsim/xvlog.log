@@ -2,9 +2,5 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/HWSynLab/Lab06Uart/Lab06.srcs/so
 INFO: [VRFC 10-311] analyzing module abs
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/alu.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module alu
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/computeUnit.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module computeUnit
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/ioController.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ioController
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/HWSynLab/Lab06Uart/Lab06.srcs/sim_1/new/computeUnitTester.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module computeUnitTester
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/HWSynLab/Lab06Uart/Lab06.srcs/sim_1/new/aluTester.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aluTester

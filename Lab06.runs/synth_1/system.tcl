@@ -92,6 +92,7 @@ read_verilog -library xil_defaultlib {
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/abs.v
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/alu.v
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/baudrate_gen.v
+  D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/bcd.v
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/clockDiv.v
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/receiver.v
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/segmentDecoder.v
