@@ -28,6 +28,7 @@ module vgaSevenSegment(
     );
     
     parameter SIZE = 10;
+    parameter WIDTH = 80;
     
     initial
     begin
@@ -38,22 +39,22 @@ module vgaSevenSegment(
     begin
         high = 0;
         
-        if (x >= 0 && x < 100 && y >= 0 && y < SIZE && ~seg[0])
+        if (x >= 0 && x < WIDTH && y >= 0 && y < SIZE && ~seg[0])
         begin
             high = 1;
         end
         
-        if (x >= 100 - SIZE && x < 100 && y >= 0 && y < 50 && ~seg[1])
+        if (x >= WIDTH - SIZE && x < WIDTH && y >= 0 && y < 50 && ~seg[1])
         begin
             high = 1;
         end
         
-        if (x >= 100 - SIZE && x < 100 && y >= 50 && y < 100 && ~seg[2])
+        if (x >= WIDTH - SIZE && x < WIDTH && y >= 50 && y < 100 && ~seg[2])
         begin
             high = 1;
         end
         
-        if (x >= 0 && x < 100 && y >= 100 - SIZE && y < 100 && ~seg[3])
+        if (x >= 0 && x < WIDTH && y >= 100 - SIZE && y < 100 && ~seg[3])
         begin
             high = 1;
         end
@@ -68,7 +69,7 @@ module vgaSevenSegment(
             high = 1;
         end
         
-        if (x >= 0 && x < 100 && y >= 50 - (SIZE / 2) && y < 50 + (SIZE / 2) && ~seg[6])
+        if (x >= 0 && x < WIDTH && y >= 50 - (SIZE / 2) && y < 50 + (SIZE / 2) && ~seg[6])
         begin
             high = 1;
         end

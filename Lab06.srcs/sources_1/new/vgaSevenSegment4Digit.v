@@ -32,8 +32,8 @@ module vgaSevenSegment4Digit(
     
     wire [16:0] bcdNum;
     
-    parameter SEGMENT_SIZE = 100;
-    parameter PADDING_SIZE = 30;
+    parameter SEGMENT_SIZE = 80;
+    parameter PADDING_SIZE = 20;
     
     wire [9:0] PADDING;
     wire [9:0] BLOCK_SIZE;
@@ -51,10 +51,11 @@ module vgaSevenSegment4Digit(
     segmentDecoder decoder1(bcdNum[7:4], seg1);
     segmentDecoder decoder0(bcdNum[3:0], seg0);
     
-    vgaSevenSegment vgaSevenSegment3(x - BLOCK_SIZE, y, num[16] ? 7'b0111111 : seg3, highDigit[3]);
-    vgaSevenSegment vgaSevenSegment2(x - BLOCK_SIZE * 2, y, num[16] ? 7'b0111111 : seg2, highDigit[2]);
-    vgaSevenSegment vgaSevenSegment1(x - BLOCK_SIZE * 3, y, num[16] ? 7'b0111111 : seg1, highDigit[1]);
-    vgaSevenSegment vgaSevenSegment0(x - BLOCK_SIZE * 4, y, num[16] ? 7'b0111111 : seg0, highDigit[0]);
+    vgaSevenSegment vgaSevenSegment4(x * SCALER, y, num[16] || bcdNum[16] ? 7'b0111111 : 7'b1111111, highDigit[4]);
+    vgaSevenSegment vgaSevenSegment3((x - BLOCK_SIZE) * SCALER, y, num[16] ? 7'b0111111 : seg3, highDigit[3]);
+    vgaSevenSegment vgaSevenSegment2((x - BLOCK_SIZE * 2) * SCALER, y, num[16] ? 7'b0111111 : seg2, highDigit[2]);
+    vgaSevenSegment vgaSevenSegment1((x - BLOCK_SIZE * 3) * SCALER, y, num[16] ? 7'b0111111 : seg1, highDigit[1]);
+    vgaSevenSegment vgaSevenSegment0((x - BLOCK_SIZE * 4) * SCALER, y, num[16] ? 7'b0111111 : seg0, highDigit[0]);
     
     always @(highDigit)
     begin

@@ -35,7 +35,7 @@ module system(
 	parameter HEIGHT = 480;
 		
 	// register for Basys 2 8-bit RGB DAC 
-	reg [11:0] rgb_reg;
+	reg [11:0] rgb_reg = 0;
 	reg reset = 0;
 	wire [9:0] x, y;
 
@@ -78,8 +78,26 @@ module system(
     
     bcdMachine bcdMachine(S[15:0], Sbcd);
 
-    assign dp = Sbcd[16];
+    assign dp = ~Sbcd[16];
     assign rgb = (video_on) ? rgb_reg : 12'b0;
+    
+    wire Ahigh, Bhigh, Shigh;
+    
+    vgaSevenSegment4Digit Avga(x-100, y-60, 2, A, Ahigh);
+    vgaSevenSegment4Digit Bvga(x-400, y-60, 2, B, Bhigh);
+    vgaSevenSegment4Digit Svga(x-100, y-200, 1, S, Shigh);
+    
+    always @(posedge p_tick) begin
+        if (y >= 200) begin
+            rgb_reg = Shigh ? 12'b1 : 12'b0;
+        end else begin
+            if (x <= 400) begin
+                rgb_reg = Ahigh ? 12'b1 : 12'b0;
+            end else begin
+                rgb_reg = Bhigh ? 12'b1 : 12'b0;
+            end
+        end
+    end
     
     sevenSegment sevenSegment(tclk[19], Sbcd[15:12], Sbcd[11:8], Sbcd[7:4], Sbcd[3:0], seg, dpp, an);
 endmodule
