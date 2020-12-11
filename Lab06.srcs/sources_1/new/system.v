@@ -81,21 +81,27 @@ module system(
     assign dp = ~Sbcd[16];
     assign rgb = (video_on) ? rgb_reg : 12'b0;
     
-    wire Ahigh, Bhigh, Shigh;
+    wire Ahigh, Bhigh, Shigh, ops_high, name_high;
     
-    vgaSevenSegment4Digit Avga(x-100, y-60, 2, A, Ahigh);
-    vgaSevenSegment4Digit Bvga(x-400, y-60, 2, B, Bhigh);
-    vgaSevenSegment4Digit Svga(x-100, y-200, 1, S, Shigh);
+    vgaName name_vga(x-200, y-60, 2, name_high);
+    vgaAluOps ops_vga((x-380)*2, (y-160)*2, alu_ops, ops_high);
+    vgaSevenSegment4Digit Avga(x-100, y-160, 2, A, Ahigh);
+    vgaSevenSegment4Digit Bvga(x-400, y-160, 2, B, Bhigh);
+    vgaSevenSegment4Digit Svga(x-100, y-240, 1, S, Shigh);
     
     always @(posedge p_tick) begin
-        if (y >= 200) begin
+        if (y >= 240) begin
             rgb_reg = Shigh ? 12'b1 : 12'b0;
-        end else begin
-            if (x <= 400) begin
+        end else if (y >= 160) begin
+            if (x < 350) begin
                 rgb_reg = Ahigh ? 12'b1 : 12'b0;
+            end else if (x < 430) begin
+                rgb_reg = ops_high ? 12'b1 : 12'b0;
             end else begin
                 rgb_reg = Bhigh ? 12'b1 : 12'b0;
             end
+        end else begin
+            rgb_reg = name_high ? 12'b1 : 12'b0;
         end
     end
     

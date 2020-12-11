@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date             : Thu Dec 10 21:49:04 2020
+| Date             : Fri Dec 11 12:03:50 2020
 | Host             : DESKTOP-MDJ4TOO running 64-bit major release  (build 9200)
 | Command          : report_power -file system_power_routed.rpt -pb system_power_summary_routed.pb -rpx system_power_routed.rpx
 | Design           : system
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.109        |
+| Total On-Chip Power (W)  | 0.115        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.038        |
+| Dynamic (W)              | 0.043        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 84.5         |
-| Junction Temperature (C) | 25.5         |
+| Max Ambient (C)          | 84.4         |
+| Junction Temperature (C) | 25.6         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,18 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.001 |     3008 |       --- |             --- |
-|   LUT as Logic |     0.001 |     1882 |     20800 |            9.05 |
-|   CARRY4       |    <0.001 |      324 |      8150 |            3.98 |
-|   Register     |    <0.001 |      173 |     41600 |            0.42 |
-|   F7/F8 Muxes  |    <0.001 |        1 |     32600 |           <0.01 |
-|   Others       |     0.000 |       74 |       --- |             --- |
+| Slice Logic    |     0.002 |     3441 |       --- |             --- |
+|   LUT as Logic |     0.002 |     2155 |     20800 |           10.36 |
+|   CARRY4       |    <0.001 |      372 |      8150 |            4.56 |
+|   Register     |    <0.001 |      185 |     41600 |            0.44 |
+|   Others       |     0.000 |       78 |       --- |             --- |
 |   BUFG         |     0.000 |        1 |        32 |            3.13 |
-| Signals        |     0.002 |     2386 |       --- |             --- |
-| DSPs           |     0.005 |       16 |        90 |           17.78 |
+| Signals        |     0.003 |     2736 |       --- |             --- |
+| DSPs           |     0.009 |       27 |        90 |           30.00 |
 | I/O            |     0.028 |       29 |       106 |           27.36 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.109 |          |           |                 |
+| Total          |     0.115 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.019 |       0.009 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.024 |       0.015 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.014 |       0.001 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.009 |       0.008 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -143,12 +142,13 @@ Table of Contents
 +-----------------+-----------+
 | Name            | Power (W) |
 +-----------------+-----------+
-| system          |     0.038 |
-|   Avga          |     0.002 |
+| system          |     0.043 |
+|   Avga          |     0.003 |
 |   Bvga          |     0.002 |
 |   Svga          |     0.002 |
-|   uartSystem    |     0.002 |
-|   vga_sync_unit |     0.002 |
+|   name_vga      |     0.003 |
+|   uartSystem    |     0.001 |
+|   vga_sync_unit |     0.003 |
 +-----------------+-----------+
 
 

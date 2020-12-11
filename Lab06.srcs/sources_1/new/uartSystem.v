@@ -106,10 +106,15 @@ module uartSystem(
             
             if (uart == K_BACKSPACE)
             begin
-                case (st)
-                    2'b00: A = A / 10;
-                    2'b01: B = B / 10;
-                endcase
+                if (st == 2'b01 && B == 0) begin
+                    st = 0;
+                    alu_ops = 3'b111;
+                end else begin        
+                    case (st)
+                        2'b00: A = A / 10;
+                        2'b01: B = B / 10;
+                    endcase
+                end
             end
         end
         last_rec = received;

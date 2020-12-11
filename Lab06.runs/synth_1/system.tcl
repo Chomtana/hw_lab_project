@@ -100,6 +100,8 @@ read_verilog -library xil_defaultlib {
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/sevenSegment.v
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/transmitter.v
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/uartSystem.v
+  D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/vgaAluOps.v
+  D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/vgaName.v
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/vgaSevenSegment.v
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/vgaSevenSegment4Digit.v
   D:/HWSynLab/Lab06Uart/Lab06.srcs/sources_1/new/vgaSystem.v
