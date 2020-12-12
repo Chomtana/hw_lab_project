@@ -28,7 +28,8 @@ module system(
     output wire hsync, vsync,
 	output wire [11:0] rgb,
     input clk,
-    input RsRx
+    input RsRx,
+    input btnC
     );
     
     parameter WIDTH = 640;
@@ -59,7 +60,7 @@ module system(
     
     wire [15:0] absS;
     
-    uartSystem uartSystem(clk, RsRx, RsTx, uart, A, B, alu_ops, S[15:0]);
+    uartSystem uartSystem(clk, RsRx, RsTx, uart, A, B, alu_ops, S[15:0], btnC);
     //computeUnit computeUnit(uart, A, B, alu_ops, S);
     
     alu aluComponent(A, B, alu_ops, S);
@@ -84,7 +85,7 @@ module system(
     wire Ahigh, Bhigh, Shigh, ops_high, name_high;
     
     vgaName name_vga(x-200, y-60, 2, name_high);
-    vgaAluOps ops_vga((x-380)*2, (y-160)*2, alu_ops, ops_high);
+    vgaAluOps ops_vga((x-360)*2, (y-160)*2, alu_ops, ops_high);
     vgaSevenSegment4Digit Avga(x-100, y-160, 2, A, Ahigh);
     vgaSevenSegment4Digit Bvga(x-400, y-160, 2, B, Bhigh);
     vgaSevenSegment4Digit Svga(x-100, y-240, 1, S, Shigh);
@@ -95,7 +96,7 @@ module system(
         end else if (y >= 160) begin
             if (x < 350) begin
                 rgb_reg = Ahigh ? 12'b1 : 12'b0;
-            end else if (x < 430) begin
+            end else if (x < 410) begin
                 rgb_reg = ops_high ? 12'b1 : 12'b0;
             end else begin
                 rgb_reg = Bhigh ? 12'b1 : 12'b0;

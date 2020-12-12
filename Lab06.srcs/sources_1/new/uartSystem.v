@@ -1,7 +1,7 @@
 `timescale 1ns / 1ns
 //////////////////////////////////////////////////////////////////////////////////
 // Company: Computer Engineering Department, Chulalongkorn University
-// Engineer: Pollawat Hongwimol
+// Engineer: Chomtana Chanjaraswichai
 // 
 // Create Date: 04/12/2020 03:03:19 AM
 // Design Name: 
@@ -26,20 +26,23 @@ module uartSystem(
     output reg [15:0] A,
     output reg [15:0] B,
     output reg [2:0] alu_ops,
-    input [16:0] S
+    input [16:0] S,
+    input reset
     );
     
     reg [2:0] st = 0;
-    reg [7:0]K_0 = 8'h30;
     
-    reg [7:0]K_PLUS = 8'h2b;
-    reg [7:0]K_MINUS = 8'h2d;
-    reg [7:0]K_MUL = 8'h2a;
-    reg [7:0]K_DIV = 8'h2f;
-    reg [7:0]K_ENTER = 8'h0a;
-    reg [7:0]K_C = 8'h63;
-    reg [7:0]K_ESC = 8'h1b;
-    reg [7:0]K_BACKSPACE = 8'h08;
+    parameter K_0 = 8'h30;
+    
+    parameter K_PLUS = 8'h2b;
+    parameter K_MINUS = 8'h2d;
+    parameter K_MUL = 8'h2a;
+    parameter K_DIV = 8'h2f;
+    parameter K_ENTER = 8'h0a;
+    parameter K_C = 8'h63;
+    parameter K_ESC = 8'h1b;
+    parameter K_BACKSPACE = 8'h08;
+    parameter K_S = 8'h73;
     
     reg ena, last_rec;
     
@@ -73,6 +76,14 @@ module uartSystem(
                 case (st)
                     2'b00: A = (A < 1000 ? A * 10 + (uart - K_0) : A);
                     2'b01: B = (B < 1000 ? B * 10 + (uart - K_0) : B);
+                endcase
+            end
+            
+            if (uart == K_S)
+            begin
+                case (st)
+                    2'b00: A = -A;
+                    2'b01: B = -B;
                 endcase
             end
             
@@ -118,6 +129,13 @@ module uartSystem(
             end
         end
         last_rec = received;
+        
+        if (reset) begin
+            st = 0;
+            A = 0;
+            B = 0;
+            alu_ops = 3'b111;
+        end
     end
     
 endmodule

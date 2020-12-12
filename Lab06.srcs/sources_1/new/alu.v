@@ -79,7 +79,7 @@ module alu(
             
             default: 
             begin
-                SS = {16'b0, A};
+                SS = absA;
                 Ssign = signA;
             end
         endcase
